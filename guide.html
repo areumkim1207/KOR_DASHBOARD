@@ -110,7 +110,21 @@ a{color:var(--navy)}
 <li><b>GP% 기준</b>: SD는 회계 기준(SAP 매출원가), SO는 수주 시점 원가입니다. 그래서 SD와 SO의 GP%는 다를 수 있고, RPA 자료와도 0.5%p 안팎 차이가 날 수 있습니다.</li>
 <li><b>당일 실적</b>: 매일 08시 갱신이라 당일 출하·수주는 다음 날 아침에 반영됩니다. 숫자가 이상하면 먼저 페이지 상단의 데이터 기준일을 확인해 주세요.</li>
 <li><b>색</b>: 게이지의 <span class="sw" style="background:#0F218B"></span>네이비 = SD 실적, <span class="sw" style="background:#7FA7E8"></span>연파랑 = SO 출하예정, <span class="sw" style="background:#FFCC00"></span>노란선 = 목표입니다. <span style="color:#C62828;font-weight:700">빨간 숫자</span>는 목표 미달입니다.</li>
-</ul></section>
+</ul>
+<h3 style="font-size:15px;color:var(--navy);margin:18px 0 6px">비교 지표 산출 방식</h3>
+<p style="margin:0 0 10px">매출 비교 지표는 RPA 메일(韓国現法日次実績)과 같은 숫자가 나오도록 맞췄고, GP%는 PL 실적에 가까운 SAP 원가 기준을 씁니다.</p>
+<div class="tbl"><table><tr><th style="width:16%">지표</th><th style="width:42%">산출식</th><th>비고</th></tr>
+<tr><td><b>일평균</b></td><td>당월 누계 실적 ÷ 경과 영업일</td><td></td></tr>
+<tr><td><b>전월비</b></td><td>당월 일평균 ÷ 전월 일평균 − 1</td><td>전월 일평균 = 전월 전체 실적 ÷ 전월 영업일</td></tr>
+<tr><td><b>전년비</b></td><td>당월 일평균 ÷ 전년 동월 일평균 − 1</td><td>전년 동월은 월 전체 기준. 연휴가 낀 달은 영향이 큼</td></tr>
+<tr><td><b>연간 전년비</b></td><td>연간(4월~) 일평균 ÷ 전년 같은 기간 일평균 − 1</td><td>전년 같은 기간 = 전년 4월 ~ 전년 동월 말(월 전체)</td></tr>
+<tr><td><b>BP比</b></td><td>실적 ÷ BP − 1</td><td>누계 BP = 월 BP × 가동일 진척률</td></tr>
+<tr><td><b>GP%</b></td><td>SD: SAP 매출원가 기준 / SO: 수주 시점 원가</td><td>RPA(사내 사입가 기준)보다 약 0.5%p 높게 나옴</td></tr>
+<tr><td><b>FC比</b></td><td>실적 GP% − FC 목표 GP%</td><td>10월부터 FC 아라리액 ÷ BP 매출, 9월까지는 BP와 같음</td></tr>
+<tr><td><b>그룹사 거래</b></td><td>SD·SO 모두 제외</td><td>RPA의 「집계외」와 같은 기준</td></tr>
+</table></div>
+<p style="margin:10px 0 0;font-size:13px;color:var(--sub)"><b>방식을 바꾸고 싶을 때</b>: 04 페이지 측정값 ●DR_SD_전월비 · ●DR_SD_전년비 · ●DR_SD_연간전년비 (SO는 ●DR_SO_…)의 식을 고치면 됩니다. 이전 방식(같은 가동일 진척률 시점끼리 비교)의 기준 값은 ●DR_SD_전월동시점 · ●DR_SD_전년동시점 · ●DR_SD_연간전년 측정값으로 남아 있어 언제든 되돌릴 수 있습니다.</p>
+</section>
 
 <section id="s6"><h2>문의·요청</h2>
 <p class="lead">숫자 오류나 기능 요청은 김아름(<a href="mailto:arkim@misumi.co.kr">arkim@misumi.co.kr</a>)에게 보내주세요.</p>
