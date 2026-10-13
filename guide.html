@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SD_Daily 보고서 활용 가이드</title>
+<style>
+:root{--navy:#0F218B;--light:#7FA7E8;--yellow:#FFCC00;--red:#C62828;--so:#E8710A;--bg:#F4F6FB;--card:#fff;--line:#E2E6F0;--txt:#1F2433;--sub:#5B6275}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:"Meiryo UI","Malgun Gothic","Apple SD Gothic Neo",sans-serif;font-size:14px;line-height:1.65}
+header{background:var(--navy);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 8px}
+h1{margin:0;font-size:24px;letter-spacing:-.3px}
+h1 span{color:var(--yellow)}
+.meta{margin-top:6px;font-size:12.5px;color:#C9D3F5}
+.back{display:inline-block;margin-top:12px;color:#fff;text-decoration:none;font-size:13px;border:1px solid rgba(255,255,255,.4);border-radius:5px;padding:5px 12px}
+.back:hover{background:rgba(255,255,255,.12)}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+nav.toc a{font-size:12.5px;color:var(--navy);background:#fff;border-radius:14px;padding:3px 11px;text-decoration:none}
+main{padding:6px 16px 30px}
+section{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px 20px;margin-top:16px}
+h2{font-size:17px;margin:0 0 8px;padding-left:10px;border-left:4px solid var(--navy);color:var(--navy)}
+p.lead{margin:0 0 12px;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:var(--navy);color:#fff;text-align:left;padding:7px 10px;font-weight:600}
+td{border-bottom:1px solid var(--line);padding:7px 10px;vertical-align:top}
+tr:nth-child(even) td{background:#FAFBFE}
+td.no{white-space:nowrap;font-weight:700;color:var(--navy)}
+ol,ul{margin:0;padding-left:22px}
+li{margin:5px 0}
+b{color:var(--navy)}
+.sw{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:-1px;margin:0 2px}
+.tbl{overflow-x:auto}
+footer{text-align:center;font-size:12px;color:var(--sub);padding:18px 16px 26px}
+a{color:var(--navy)}
+@media (max-width:560px){h1{font-size:20px}section{padding:14px}td,th{padding:6px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>📘 SD_Daily 보고서 <span>활용 가이드</span></h1>
+<div class="meta">KOR 금형사업부 · 2026-10-13 · 문의 김아름 (arkim@misumi.co.kr)</div>
+<nav class="toc"><a href="#s1">한눈에 보기</a><a href="#s2">페이지 구성</a><a href="#s3">아침 5분 루틴</a><a href="#s4">유용한 기능</a><a href="#s5">숫자 읽는 법</a><a href="#s6">문의·요청</a></nav>
+<a class="back" href="index.html">← 대시보드로 돌아가기</a>
+</div></header>
+<main><div class="wrap">
+
+<section id="s1"><h2>한눈에 보기</h2>
+<p class="lead">SD_Daily는 금형사업부(KOR KK)의 출하(SD)·수주(SO) 실적을 목표와 비교해 매일 아침 확인하는 보고서입니다. 매일 오전 8시에 전일까지의 실적으로 갱신됩니다.</p>
+<div class="tbl"><table><tr><th style="width:22%">항목</th><th>내용</th></tr>
+<tr><td>대상</td><td>KOR · 금형사업부(KK_BH) · 국내(domestic)</td></tr>
+<tr><td>SD (출하)</td><td>출하확정일(VSD) 기준 매출·GP</td></tr>
+<tr><td>SO (수주)</td><td>수주일 기준 수주금액·GP, 취소분 제외</td></tr>
+<tr><td>갱신</td><td>매일 08시, 전일까지 실적 (당일 실적은 다음 날 반영)</td></tr>
+<tr><td>금액 단위</td><td>원화(KRW). 04 페이지만 百万円 (BP 레이트 1원 = 0.104엔)</td></tr>
+<tr><td>접속</td><td><a href="index.html">KOR 금형사업부 대시보드</a>에서 카드 클릭 → 해당 페이지가 바로 열림</td></tr>
+</table></div></section>
+
+<section id="s2"><h2>페이지 구성</h2>
+<p class="lead">페이지 번호 앞자리가 용도를 뜻합니다. 0번대 = 매일 보는 보드, 1번대 = 월간, 2번대 = 고객·영업, 3번대 = 기타, 9번대 = 조회입니다.</p>
+<div class="tbl"><table><tr><th style="width:10%">번호</th><th style="width:26%">페이지</th><th>이럴 때 봅니다</th></tr>
+<tr><td class="no">01</td><td>SD 보드</td><td>당월 착지(SD 실적 + SO 출하예정)가 목표에 닿는지, 부족 고객·GP 저하 고객</td></tr>
+<tr><td class="no">02</td><td>SO 보드</td><td>당월 수주 진척과 목표 대비 착지</td></tr>
+<tr><td class="no">03</td><td>GP 미달 요인</td><td>GP%가 목표에 못 미칠 때 어느 상품(NO_Product index) 때문인지</td></tr>
+<tr><td class="no">04</td><td>일차·누계 실적</td><td>RPA 형식의 전일 하루·누계·연간 비교표 (百万円)</td></tr>
+<tr><td class="no">10</td><td>SD 월간실적</td><td>TTL·E품·BU 월별 추이</td></tr>
+<tr><td class="no">11 / 12</td><td>SD PRESS / MOLD 상세</td><td>BU별 상품 실적</td></tr>
+<tr><td class="no">13 / 14</td><td>SD / SO E품 상세</td><td>E품 실적, TA 담당자별</td></tr>
+<tr><td class="no">15</td><td>SO 월간실적</td><td>수주 월별 추이</td></tr>
+<tr><td class="no">20</td><td>TA·NTA·마케 매출</td><td>고객 구분별 매출</td></tr>
+<tr><td class="no">21</td><td>담당자별 감소 고객</td><td>내 담당 고객 중 매출이 줄어든 곳</td></tr>
+<tr><td class="no">22</td><td>오오테 매출</td><td>대형 고객 매출</td></tr>
+<tr><td class="no">23</td><td>TA E품·G캠</td><td>TA의 E품·CAM 매출과 상세 내역</td></tr>
+<tr><td class="no">30 / 31</td><td>조달처별 / 특주 상세</td><td>메이커별 매출, 특주 실적</td></tr>
+<tr><td class="no">90</td><td>고객·상품 상세 조회</td><td>고객명·상품코드로 내역 검색</td></tr>
+<tr><td class="no">91</td><td>G# 발주 상세 조회</td><td>G# 번호로 발주 내역 검색</td></tr>
+</table></div></section>
+
+<section id="s3"><h2>매일 아침 5분 루틴</h2>
+<p class="lead">출근 후 01 → 04 순서로 보면 당월 목표 달성 여부와 오늘 챙길 고객을 5분 안에 파악할 수 있습니다.</p>
+<ol>
+<li><b>01 SD 보드</b>: 게이지에서 착지(<span class="sw" style="background:#0F218B"></span>네이비 SD 실적 + <span class="sw" style="background:#7FA7E8"></span>연파랑 SO 출하예정)가 <span class="sw" style="background:#FFCC00"></span>노란 목표선에 닿는지 봅니다. 아래 네이비 카드의 ⚠ 문구가 오늘 주의할 점입니다.</li>
+<li><b>01 하단 표</b>: 「고객별 착지 vs 전년 동월」은 작년보다 덜 들어온 고객 TOP 10, 「GP 저하 고객」은 이익이 줄어든 고객 TOP 10입니다. 내 담당 고객이 있는지 확인합니다.</li>
+<li><b>02 SO 보드</b>: 수주가 목표 페이스를 따라가는지 봅니다.</li>
+<li><b>03 GP 미달 요인</b>: GP%가 목표보다 낮을 때만, 어느 상품이 끌어내리는지 확인합니다.</li>
+<li><b>04 일차·누계</b>: 전일 하루 실적과 누계 BP比, 전월·전년 같은 시점 대비를 봅니다.</li>
+<li><b>궁금한 고객이 있으면</b>: 표의 고객명을 마우스 오른쪽 버튼 → <b>드릴스루</b> → 고객상세로 들어갑니다.</li>
+</ol></section>
+
+<section id="s4"><h2>유용한 기능</h2>
+<p class="lead">아래 7가지만 알아도 대부분의 질문은 보고서 안에서 바로 해결됩니다.</p>
+<div class="tbl"><table><tr><th style="width:17%">기능</th><th style="width:45%">방법</th><th>이렇게 씁니다</th></tr>
+<tr><td><b>드릴스루</b></td><td>고객명·상품을 마우스 오른쪽 버튼 → 드릴스루 → 상세 페이지. 돌아올 때는 왼쪽 위 ← 버튼</td><td>부족 고객의 상품별·월별 내역 확인</td></tr>
+<tr><td><b>슬라이서·필터</b></td><td>페이지 위 MONTH 드롭다운, 오른쪽 필터 창. 원래대로 돌리려면 상단 「기본값으로 다시 설정」</td><td>지난달 실적 보기, 특정 BU만 보기</td></tr>
+<tr><td><b>도구 설명(툴팁)</b></td><td>막대·숫자 위에 마우스를 올림</td><td>정확한 금액·비율 확인</td></tr>
+<tr><td><b>포커스 모드</b></td><td>비주얼 오른쪽 위 확대 아이콘</td><td>작은 표를 크게 보기, 회의 화면 공유</td></tr>
+<tr><td><b>데이터 내보내기</b></td><td>비주얼 오른쪽 위 「…」 → 데이터 내보내기 (Excel)</td><td>고객 리스트를 엑셀로 받아 영업 메모 작성</td></tr>
+<tr><td><b>개인 책갈피</b></td><td>상단 책갈피 → 개인 책갈피 추가</td><td>내가 자주 쓰는 필터 상태를 저장</td></tr>
+<tr><td><b>구독</b></td><td>상단 「구독」 → 페이지·시간 지정</td><td>매일 아침 01 보드 화면을 메일로 받기</td></tr>
+</table></div>
+<p style="margin:12px 0 0">모바일에서는 <b>Power BI 앱</b>을 설치하고 회사 계정으로 로그인하면 같은 보고서를 볼 수 있습니다. 자주 보는 보고서는 ☆ 즐겨찾기를 눌러 두면 홈 화면에서 바로 열립니다.</p>
+</section>
+
+<section id="s5"><h2>숫자 읽는 법과 주의사항</h2>
+<p class="lead">숫자가 다른 자료와 다르게 보일 때는 대부분 아래 기준 차이 때문입니다.</p>
+<ul>
+<li><b>▲ 표기</b>: 마이너스(미달·감소)입니다. +는 증가·초과입니다.</li>
+<li><b>착지</b>: SD 실적 + 당월 출하예정 SO(기준일 이후 ~ 당월말 납기, 미출하·미취소)입니다. 이중 집계는 없습니다.</li>
+<li><b>가동일 달성률·진척률</b>: 경과 영업일 ÷ 월 영업일을 기준으로 계산합니다. 월초에는 변동이 큽니다.</li>
+<li><b>GP% 기준</b>: SD는 회계 기준(SAP 매출원가), SO는 수주 시점 원가입니다. 그래서 SD와 SO의 GP%는 다를 수 있고, RPA 자료와도 0.5%p 안팎 차이가 날 수 있습니다.</li>
+<li><b>당일 실적</b>: 매일 08시 갱신이라 당일 출하·수주는 다음 날 아침에 반영됩니다. 숫자가 이상하면 먼저 페이지 상단의 데이터 기준일을 확인해 주세요.</li>
+<li><b>색</b>: 게이지의 <span class="sw" style="background:#0F218B"></span>네이비 = SD 실적, <span class="sw" style="background:#7FA7E8"></span>연파랑 = SO 출하예정, <span class="sw" style="background:#FFCC00"></span>노란선 = 목표입니다. <span style="color:#C62828;font-weight:700">빨간 숫자</span>는 목표 미달입니다.</li>
+</ul></section>
+
+<section id="s6"><h2>문의·요청</h2>
+<p class="lead">숫자 오류나 기능 요청은 김아름(<a href="mailto:arkim@misumi.co.kr">arkim@misumi.co.kr</a>)에게 보내주세요.</p>
+<ul>
+<li>오류 신고 시: <b>페이지 번호 + 화면 캡처 + 선택한 필터(월·고객 등)</b>를 함께 보내주시면 빨리 확인할 수 있습니다.</li>
+<li>보고서 자체는 수정·저장·게시하지 말아주세요. 편집 권한이 보이더라도 원본이 바뀝니다. 내 용도로 바꾸고 싶으면 「복사본 저장」을 쓰거나 개인 책갈피를 활용해 주세요.</li>
+</ul></section>
+
+</div></main>
+<footer>© 2026 MISUMI KOR 금형사업부 금형사업팀 · <a href="index.html">대시보드로 돌아가기</a></footer>
+</body>
+</html>
